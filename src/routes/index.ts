@@ -32,7 +32,7 @@ server.use('/hello', helloRouter); // http://localhost:8000/api/hello --> HelloR
 // Add more routes to the app
 server.use('/users', usersRouter); ; // http://localhost:8000/api/users --> UserRouter
 // Auth routes
-server.use('/auth', authRouter);
+server.use('/auth', authRouter); // http://localhost:8000/api/auth --> AuthRouter
 
 
 export default server;

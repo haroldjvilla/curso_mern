@@ -2,8 +2,14 @@ import express, { Request, Response } from "express";
 import { UserController  } from "../controller/UsersController";
 import { LogInfo } from "../utils/logger";
 
+// Body Parser to read BODY from requests
+import bodyParser from "body-parser";
+
+let jsonParser = bodyParser.json();
+
 // Router from express
 let usersRouter = express.Router();
+
 
 // http://localhost:8000/api/users?id=6253dc47f30baed4c6de7f99
 usersRouter.route('/')
@@ -30,31 +36,6 @@ usersRouter.route('/')
         const response: any = await controller.deleteUser(id);
         // Send to the client the response
         return res.status(200).send(response);
-    })
-    // POST:
-    .post(async (req:Request, res: Response) => {
-
-        let name: any = req?.query?.name;
-        let age: any = req?.query?.age;
-        let email: any = req?.query?.email;
-
-        // let name2: any = req?.body?.name;
-        // LogInfo(`#### NAME in BODY: ${name2}`);
-
-
-        // Controller Instance to excute method
-        const controller: UserController = new UserController();
-
-        let user = {
-            name: name || 'dafault',
-            email: email || 'default email',
-            age: age || 18
-        }
-
-        // Obtain Response
-        const response: any = await controller.createUser(user);
-        // Send to the client the response
-        return res.status(201).send(response);
     })
     .put(async (req:Request, res: Response) => {
         // Obtain a Query Param (ID)
