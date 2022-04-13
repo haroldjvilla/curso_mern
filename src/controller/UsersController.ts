@@ -15,19 +15,16 @@ export class UserController implements IUserController {
      * @returns All user o user found by iD
      */
     @Get("/")
-    public async getUsers(@Query()id?: string): Promise<any> {
+    public async getUsers(@Query()page: number, @Query()limit: number, @Query()id?: string): Promise<any> {
         
         let response: any = '';
         
         if(id){
             LogSuccess(`[/api/users] Get User By ID: ${id} `);
             response = await getUserByID(id);
-            // Remove the password
-            response.password = '';
         }else {
             LogSuccess('[/api/users] Get All Users Request')
-            response = await getAllUsers();
-            // TODO: remove passwords from response
+            response = await getAllUsers(page, limit);
         }
         
         return response;
