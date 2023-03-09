@@ -13,6 +13,7 @@ mongoose: Una biblioteca de modelado de objetos de MongoDB diseñada para trabaj
 swagger-jsdoc: Un paquete que proporciona una forma de escribir la documentación de Swagger utilizando JSDoc.
 swagger-ui-express: Un paquete que proporciona una forma de agregar fácilmente una interfaz de usuario de Swagger a una aplicación Express.
 tsoa: Un marco de trabajo que permite escribir aplicaciones y servicios API de Node.js usando TypeScript y generar automáticamente la documentación de Swagger.
+
 Scripts de NPM
 Se han creado los siguientes scripts de NPM:
 
@@ -23,6 +24,7 @@ serve:coverage: Inicia un servidor para mostrar la cobertura de las pruebas unit
 build: Genera una versión de desarrollo de la aplicación.
 start: Inicia el servidor en modo de producción.
 build:prod: Genera una versión de producción de la aplicación.
+
 Variables de entorno
 Las variables de entorno que se deben crear en el archivo .env son las siguientes:
 
